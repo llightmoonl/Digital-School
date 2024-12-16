@@ -1,0 +1,37 @@
+@use "@styles/styles" as container;
+
+.header {
+    position: relative;
+    &__content {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        font-family: "Caveat", serif;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    &__menu{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        & .menu{
+            $menu: &;
+            padding: 10px 32px;
+            display: flex;
+            list-style-type: none;
+            border: 1px solid white;
+            border-radius: 32px;
+            font-weight: 800;
+            gap: 32px;
+            &__element{
+                & #{$menu}__link{
+                    background-color: green;
+                }
+            }
+        }
+    }
+}
+
