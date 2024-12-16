@@ -7,8 +7,9 @@
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@scripts/*": ["./src/scripts/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@scripts": ["./src/scripts"],
+      "@styles/*": ["./src/styles/*"],
+      "@shared": ["./src/components/shared"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",

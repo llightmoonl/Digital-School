@@ -1,4 +1,2 @@
-import ClassesStyles from "@scripts/ClassesStyles.ts";
-import CreateElement from "@scripts/CreateElement.ts";
-
-export default {ClassesStyles, CreateElement};
+export {ClassesStyles} from "@scripts/ClassesStyles.ts";
+export {CreateElement} from "@scripts/CreateElement.ts";

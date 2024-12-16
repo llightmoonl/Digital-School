@@ -1,24 +1,24 @@
-import {ClassesStyles, CreateElement} from "@scripts/index.ts"
-
 import className from "./header.module.scss";
+import {ClassesStyles, CreateElement} from "@scripts"
 
-interface Props {
-    menuList: Array<object>,
-}
+export class Header {
+    private readonly classes: CSSModuleClasses;
+    private readonly menuList: object[];
 
-class Header implements Props {
-    private classes: object | string;
-    private menuList: Array<object>;
-
-    constructor(menuList) {
+    constructor(menuList: object[]) {
         this.classes = className;
         this.menuList = menuList;
     }
 
-    renderMenuList(menuList: object) {
-        const menu = new CreateElement('nav', this.classes.header__menu);
+    renderMenuList(menuList: object[]) {
+        const menuElement: HTMLElement = new CreateElement('nav', this.classes.header__menu).render();
+        const menuListElement: HTMLElement = new CreateElement('ul', this.classes.menu__list).render();
+        menuElement.append(menuListElement);
 
-        return ;
+        menuList.map((menuListElement: object)=> {
+            const listElement = new CreateElement('li', this.classes.menu__element).render();
+            const linkListElement = new CreateElement('a', this.classes.menu__list).render();
+        })
     }
 
     render () {
@@ -37,5 +37,3 @@ class Header implements Props {
         `);
     }
 }
-
-export default Header;

@@ -1,7 +1,5 @@
-class ClassesStyles{
-    public static checkClassesInStyles (className: object): string {
+export class ClassesStyles{
+    public static checkClassesInStyles (className: string): string {
         return className ? `class = ${className}` : '';
     }
 }
-
-export default ClassesStyles;

@@ -1,22 +1,22 @@
 interface Element {
-    tags: string
-    classes: string | Array<string>,
+    render(): void
 }
 
-class CreateElement implements Element{
-    private tags;
-    private classes;
+export class CreateElement implements Element {
+    private readonly tags;
+    private readonly classElement;
 
-    private constructor(tags, classes) {
+    public constructor(tags: string, classElement?: string) {
         this.tags = tags;
-        this.classes = classes
+        this.classElement = classElement;
     }
 
-    public render(){
-        const menu: HTMLElement = document.createElement(this.tags);
-        menu.classList.add(this.classes)
-    }
+    public render(): HTMLElement {
+        const element: HTMLElement = document.createElement(this.tags);
+        this.classElement ? element.classList.add(this.classElement) : "";
 
+        return element;
+    }
 }
 
-export default CreateElement;
+

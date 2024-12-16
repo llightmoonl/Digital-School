@@ -1,4 +1,4 @@
-import Header from './components/shared/header';
+import {Header} from '@shared';
 import '@styles/styles.scss'
 
 const menuList = [
