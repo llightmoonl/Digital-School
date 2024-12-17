@@ -1,24 +1,52 @@
 import className from "./header.module.scss";
 import {ClassesStyles, CreateElement} from "@scripts"
 
+type Menu = {name: string, link: string}[];
+
 export class Header {
     private readonly classes: CSSModuleClasses;
-    private readonly menuList: object[];
+    private readonly menuList: Menu;
 
-    constructor(menuList: object[]) {
+    constructor(menuList: Menu) {
         this.classes = className;
         this.menuList = menuList;
     }
 
-    renderMenuList(menuList: object[]) {
-        const menuElement: HTMLElement = new CreateElement('nav', this.classes.header__menu).render();
-        const menuListElement: HTMLElement = new CreateElement('ul', this.classes.menu__list).render();
-        menuElement.append(menuListElement);
+    renderMenuList(): string {
+        const menuElement: HTMLElement = new CreateElement('nav',
+            {
+                classList: this.classes.header__menu
+            }
+        ).render();
 
-        menuList.map((menuListElement: object)=> {
-            const listElement = new CreateElement('li', this.classes.menu__element).render();
-            const linkListElement = new CreateElement('a', this.classes.menu__list).render();
+        const menuList: HTMLElement = new CreateElement('ul',
+            {
+                classList: this.classes.menu
+            }
+        ).render();
+
+        this.menuList.map((menuItem)=> {
+            const menuElementList: HTMLElement = new CreateElement('li',
+                {
+                    classList: this.classes.menu__element
+                }
+            ).render()
+
+            const menuLinkList: HTMLElement = new CreateElement('a',
+                {
+                    textContent: menuItem.name,
+                    classList:  this.classes.menu__link,
+                    attributes: {
+                        href: menuItem.link,
+                    }
+                }
+            ).render()
+
+            menuElementList.append(menuLinkList);
+            menuList.append(menuElementList);
         })
+        menuElement.append(menuList);
+        return menuElement.outerHTML;
     }
 
     render () {
@@ -28,9 +56,7 @@ export class Header {
                 <div ${ClassesStyles.checkClassesInStyles(this.classes.container)}>
                     <div ${ClassesStyles.checkClassesInStyles(this.classes.header__content)}>
                         <a ${ClassesStyles.checkClassesInStyles(this.classes.header__logo)} href = '/'>Digital School</a>
-                        <nav ${ClassesStyles.checkClassesInStyles(this.classes.header__menu)}>
-                            ${this.renderMenuList(this.menuList)}               
-                        </nav>
+                        ${this.renderMenuList()}  
                     </div>
                 </div> 
             </div>  
