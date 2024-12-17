@@ -1,6 +1,5 @@
-import {Element} from "@/scripts/CreateElement/interface.ts";
-import {PropertyElementType} from "@/scripts/CreateElement/types.ts";
-
+import {Element} from "@models";
+import {PropertyElementType} from "@types";
 
 export class CreateElement implements Element {
     private readonly tag : string;

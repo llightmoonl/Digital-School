@@ -9,7 +9,9 @@
       "@/*": ["./src/*"],
       "@scripts": ["./src/scripts"],
       "@styles/*": ["./src/styles/*"],
-      "@shared": ["./src/components/shared"]
+      "@shared": ["./src/components/shared"],
+      "@types": ["./src/types"],
+      "@models": ["./src/models"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",

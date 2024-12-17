@@ -1,7 +1,6 @@
 import className from "./header.module.scss";
 import {ClassesStyles, CreateElement} from "@scripts"
-
-type Menu = {name: string, link: string}[];
+import {Menu} from "@types";
 
 export class Header {
     private readonly classes: CSSModuleClasses;

@@ -1,4 +1,4 @@
-import {AttributesType} from "./types";
+import {AttributesType} from "@types";
 
 export interface Element {
     render(): void
